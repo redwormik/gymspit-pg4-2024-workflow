@@ -7,11 +7,27 @@ class Program
 	{
 		Console.WriteLine("Jednoduchá kalkulačka v C#");
 		
-		Console.Write("Zadejte první číslo: ");
-		double cislo1 = Convert.ToDouble(Console.ReadLine());
+		double cislo1, cislo2;
 
-		Console.Write("Zadejte druhé číslo: ");
-		double cislo2 = Convert.ToDouble(Console.ReadLine());
+		// Načtení prvního čísla
+		while (true) {
+			Console.Write("Zadejte první číslo: ");
+			if (double.TryParse(Console.ReadLine(), out cislo1)) {
+				break;
+			} else {
+				Console.WriteLine("Neplatný vstup. Zadejte prosím číslo.");
+			}
+		}
+
+		// Načtení druhého čísla
+		while (true) {
+			Console.Write("Zadejte druhé číslo: ");
+			if (double.TryParse(Console.ReadLine(), out cislo2)) {
+				break;
+			} else {
+				Console.WriteLine("Neplatný vstup. Zadejte prosím číslo.");
+			}
+		}
 
 		Console.WriteLine("Vyberte operaci:");
 		Console.WriteLine("1 - Sčítání");
