@@ -7,40 +7,52 @@ class Program
 	{
 		Console.WriteLine("!!! Vítejte v programu kalkulačka !!!");
 
-		double cislo1, cislo2;
+		bool pokracovat = true;
 
-		// Načtení prvního čísla
-		while (true) {
-			Console.Write("Zadejte první číslo: ");
-			if (double.TryParse(Console.ReadLine(), out cislo1)) {
-				break;
-			} else {
-				Console.WriteLine("Neplatný vstup. Zadejte prosím číslo.");
+		while (pokracovat) {
+			double cislo1, cislo2;
+
+			// Načtení prvního čísla
+			while (true) {
+				Console.Write("Zadejte první číslo: ");
+				if (double.TryParse(Console.ReadLine(), out cislo1)) {
+					break;
+				} else {
+					Console.WriteLine("Neplatný vstup. Zadejte prosím číslo.");
+				}
 			}
-		}
 
-		// Načtení druhého čísla
-		while (true) {
-			Console.Write("Zadejte druhé číslo: ");
-			if (double.TryParse(Console.ReadLine(), out cislo2)) {
-				break;
-			} else {
-				Console.WriteLine("Neplatný vstup. Zadejte prosím číslo.");
+			// Načtení druhého čísla
+			while (true) {
+				Console.Write("Zadejte druhé číslo: ");
+				if (double.TryParse(Console.ReadLine(), out cislo2)) {
+					break;
+				} else {
+					Console.WriteLine("Neplatný vstup. Zadejte prosím číslo.");
+				}
 			}
+
+			// Výběr operace
+			Console.WriteLine("Vyberte početní operaci:");
+			Console.WriteLine("[1] - Sčítání");
+			Console.WriteLine("[2] - Odčítání");
+			Console.WriteLine("[3] - Násobení");
+			Console.WriteLine("[4] - Dělení");
+
+			string operacniVstup = Console.ReadLine();
+			Console.WriteLine($"Výsledek: {Vypocet(operacniVstup, cislo1, cislo2)}");
+
+			// Dotaz na pokračování
+			Console.Write("Chcete pokračovat? (a/n): ");
+			string odpoved = Console.ReadLine().Trim().ToLower();
+
+			if (odpoved == "n") {
+				pokracovat = false;
+				Console.WriteLine("Děkujeme za použití kalkulačky. Nashledanou!");
+			}
+
+			Console.WriteLine();
 		}
-
-		Console.WriteLine("Vyberte početní operaci:");
-		Console.WriteLine("[1] - Sčítání");
-		Console.WriteLine("[2] - Odčítání");
-		Console.WriteLine("[3] - Násobení");
-		Console.WriteLine("[4] - Dělení");
-		Console.Write("Zadejte číslo operace: ");
-		string operacniVstup = Console.ReadLine();
-
-		Console.WriteLine($"Výsledek: {Vypocet(operacniVstup, cislo1, cislo2)}");
-
-		Console.WriteLine("Stiskněte libovolnou klávesu pro ukončení.");
-		Console.ReadKey();
 	}
 
 
