@@ -6,7 +6,7 @@ class Program
 	static void Main()
 	{
 		Console.WriteLine("!!! Vítejte v programu kalkulačka !!!");
-		
+
 		double cislo1, cislo2;
 
 		// Načtení prvního čísla
@@ -37,42 +37,39 @@ class Program
 		Console.Write("Zadejte číslo operace: ");
 		string operacniVstup = Console.ReadLine();
 
-        Console.WriteLine($"Výsledek: {Vypocet(operacniVstup, cislo1, cislo2)}");
+		Console.WriteLine($"Výsledek: {Vypocet(operacniVstup, cislo1, cislo2)}");
 
 		Console.WriteLine("Stiskněte libovolnou klávesu pro ukončení.");
 		Console.ReadKey();
 	}
 
-	double Vypocet(string vstup, double cislo1, double cislo2)
+
+	static double Vypocet(string vstup, double cislo1, double cislo2)
 	{
-        double vysledek;
+		double vysledek = double.NaN;
 
-        switch (vstup)
-        {
-            case "1":
-                vysledek = cislo1 + cislo2;
-                break;
-            case "2":
-                vysledek = cislo1 - cislo2;
-                break;
-            case "3":
-                vysledek = cislo1 * cislo2;
-                break;
-            case "4":
-                if (cislo2 != 0)
-                {
-                    vysledek = cislo1 / cislo2;
-                }
-                else
-                {
-                    Console.WriteLine("Chyba: Dělení nulou není povoleno.");
-                }
-                break;
-            default:
-                Console.WriteLine("Neplatný vstup operace.");
-                break;
-        }
-        return vysledek;
-    }
+		switch (vstup) {
+			case "1":
+				vysledek = cislo1 + cislo2;
+				break;
+			case "2":
+				vysledek = cislo1 - cislo2;
+				break;
+			case "3":
+				vysledek = cislo1 * cislo2;
+				break;
+			case "4":
+				if (cislo2 != 0) {
+					vysledek = cislo1 / cislo2;
+				} else {
+					Console.WriteLine("Chyba: Dělení nulou není povoleno.");
+				}
+				break;
+			default:
+				Console.WriteLine("Neplatný vstup operace.");
+				break;
+		}
+
+		return vysledek;
+	}
 }
-
