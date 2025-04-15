@@ -19,11 +19,11 @@ class Program
 		Console.WriteLine("3 - Násobení");
 		Console.WriteLine("4 - Dělení");
 		Console.Write("Zadejte číslo operace: ");
-		string volba = Console.ReadLine();
+		string vstup = Console.ReadLine();
 
 		double vysledek;
 
-		switch (volba)
+		switch (vstup)
 		{
 			case "1":
 				vysledek = cislo1 + cislo2;
@@ -46,7 +46,7 @@ class Program
 				}
 				break;
 			default:
-				Console.WriteLine("Neplatná volba operace.");
+				Console.WriteLine("Neplatná vstup operace.");
 				break;
 		}
 
